@@ -19,6 +19,7 @@ searchText.addEventListener('input', (e) => {
 
 addNote.addEventListener('click', (e) => {
   notes.push({
+    id: uuidv4(),
     title: '',
     body: '',
   });
@@ -29,3 +30,4 @@ addNote.addEventListener('click', (e) => {
 document.querySelector('#filterBy').addEventListener('change', (e) => {
   console.log(e.target.value);
 });
+

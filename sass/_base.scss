@@ -1,0 +1,58 @@
+// Color Variables
+$color-primary: steelblue;
+
+// Font Variables
+
+//////////////////////////
+// Responsive Breakpoints
+/////////////////////////
+// Responsive Breakpoints
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+
+///////////////////////
+////////// GLOBAL RESET
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // SETS FONT SIZE 1rem = 10px  [10px / 16px (browser default value) = 62.5%]
+}
+
+body {
+  font-weight: 300;
+  line-height: 1.6;
+}
+.border {
+  border: 1px solid red;
+}
+.container {
+  & h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+.filter,.todo-list, .form{
+  
+  padding: 1rem;
+  .filter__checkbox{
+    margin-top: 1rem;
+  }
+}
+
+.summary {
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+}

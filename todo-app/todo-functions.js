@@ -14,6 +14,7 @@ const getTodos = () => {
 // ADD TODOS
 const addTodo = (text) => {
   todos.push({
+    id: uuidv4(),
     text: text,
     completed: false,
   });
@@ -24,6 +25,16 @@ const addTodo = (text) => {
 // SAVE TODOS
 const saveTodos = (todos) => {
   localStorage.setItem('todos', JSON.stringify(todos));
+};
+
+// REMOVE TODO
+const removeTodo = (id) => {
+  const todoIndex = todos.findIndex((todo) => {
+    return todo.id === id;
+  });
+  if (todoIndex > -1) {
+    todos.splice(todoIndex, 1);
+  }
 };
 
 // RENDER TODOS
@@ -51,6 +62,16 @@ const renderTodos = (todos, filters) => {
   });
 };
 
+const toggleTodo = (id) => {
+  const todo = todos.find((todo) => {
+    return todo.id === id;
+  });
+  if (todo !== undefined) {
+    todo.completed = !todo.completed;
+  }
+};
+
+
 // GENERATE TODOS TO DOM
 const generateTodoDOM = (todo) => {
   const todoEl = document.createElement('div');
@@ -60,7 +81,14 @@ const generateTodoDOM = (todo) => {
 
   //   Add Checkbox
   checkbox.type = 'checkbox';
+  checkbox.checked = todo.completed;
   todoEl.appendChild(checkbox);
+
+  checkbox.addEventListener('change', () => {
+    toggleTodo(todo.id);
+    saveTodos(todos);
+    renderTodos(todos, filters);
+  });
 
   //   Add Text
   if (todo.text.length > 0) {
@@ -73,6 +101,11 @@ const generateTodoDOM = (todo) => {
   //   Add Delete Button
   deleteBtn.textContent = 'x';
   todoEl.appendChild(deleteBtn);
+  deleteBtn.addEventListener('click', () => {
+    removeTodo(todo.id);
+    saveTodos(todos);
+    renderTodos(todos, filters);
+  });
   return todoEl;
 };
 

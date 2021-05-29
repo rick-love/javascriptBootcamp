@@ -8,15 +8,39 @@
     <title>Todo App</title>
   </head>
   <body>
-    <h1>My Todo's</h1>
-    <input id="search-text" type="text" placeholder="Filter Todos" />
-    <label> <input id="hideCompleted" type="checkbox" />Hide Completed </label>
-    <div id="todo-summary"></div>
-    <form action="" id="todoForm">
-      <input type="text" id="todoText" placeholder="Add Todo" name="todo" />
-      <button id="submitTodo-btn">Submit</button>
-    </form>
-    <div id="div__todos"></div>
+    <div class="container grid">
+      <h1 class="">My Todo's</h1>
+      <div class="border filter">
+        <input
+          id="search-text"
+          name="filter__input"
+          class="filter__input"
+          type="text"
+          placeholder="Filter Todos"
+        />
+        <input
+          id="hideCompleted"
+          name="filter__checkbox"
+          class="checkbox filter__checkbox"
+          type="checkbox"
+        />
+        <label for="filter__checkbox" class="filter__checkbox-label">Hide Completed</label>
+      </div>
+      <div id="todo-summary" class="border summary"></div>
+      <form action="" id="todoForm" class="form border">
+        <input
+          class="form__input"
+          type="text"
+          id="todoText"
+          placeholder="Add Todo"
+          name="todo"
+        />
+        <button class="btn form__submit" id="submitTodo-btn">Submit</button>
+      </form>
+      <div id="div__todos" class="todo-list"></div>
+    </div>
+
+    <script src="./uuidRaw.js"></script>
     <script src="./todo-functions.js"></script>
     <script src="./todo.js"></script>
   </body>

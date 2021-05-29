@@ -1,5 +1,6 @@
-// Read local data
 
+
+// Read local data
 const getSavedNotes = () => {
   let notesJSON = localStorage.getItem('notes');
 
@@ -10,15 +11,31 @@ const getSavedNotes = () => {
   }
 };
 
+// Remove Note from List
+const removeNote = (id) => {
+  const noteIndex = notes.findIndex((note) => {
+    return note.id === id;
+  });
+  if (noteIndex > -1) {
+    notes.splice(noteIndex, 1);
+  }
+};
+
 // Generate NOTES IN DOM
 const generateNoteDOM = (note) => {
   const noteEl = document.createElement('div');
   const textEl = document.createElement('span');
-  const button = document.createElement('button');
+  const removeButton = document.createElement('button');
 
   //   REMOVE NOTE BUTTON
-  button.textContent = 'x';
-  noteEl.appendChild(button);
+  removeButton.textContent = 'x';
+  noteEl.appendChild(removeButton);
+  removeButton.addEventListener('click', () => {
+    removeNote(note.id);
+
+    saveNotes(notes)
+    renderNotes(notes, filters);
+  });
 
   //   NOTE TITLE TEXT
   if (note.title.length > 0) {
