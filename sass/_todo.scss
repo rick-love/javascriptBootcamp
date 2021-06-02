@@ -1,0 +1,89 @@
+.todo {
+  &-container{
+    display: grid;
+    grid-template-columns: minmax(10px, 1fr);
+
+    box-shadow: $box-shadow;
+  }
+  &-title{
+    text-align: center;
+    font-family: $font-display;
+    font-size: 2.4rem;
+  }
+  &-summary{
+    h3 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+  }
+
+  // FILTER
+  &__filter {
+    display: grid;
+    grid-template-columns: 1fr 5rem 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  
+    &-input {
+
+
+    }
+    &-checkbox{}
+    &-label{
+      margin: .5rem;
+      text-align: center;
+    }
+  }
+  // FORM
+  &__form{
+
+    & form{
+      display: grid;
+      grid-template-columns: 1fr 5rem 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+    &-input{}
+    &-submit{
+      grid-column: 3;
+      margin: .5rem;
+
+    }
+  }
+
+  // ITEM
+  &__item{
+    display: grid;
+    grid-template-columns: 5rem 25rem min-content;
+    align-items: center;
+    justify-content: space-around;
+    
+    &-btn{
+
+      font-family: $font-display;
+      background-color: $color-secondary;
+      transition: all 0.2s ease-in;
+      width: 5rem;
+
+      &:hover {
+        background-color: $color-secondary-light;
+        color: #fff;
+        transform: scale(1.01);
+      }
+    }
+  }
+
+  &-deleteBtn {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+
+    color: #333;
+  }
+}

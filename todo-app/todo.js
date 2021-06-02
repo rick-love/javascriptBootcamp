@@ -1,5 +1,5 @@
 const searchText = document.getElementById('search-text');
-const divTodos = document.getElementById('div__todos');
+const todoList = document.getElementById('todo-list');
 const todoSummary = document.getElementById('todo-summary');
 const todoForm = document.getElementById('todoForm');
 const todoText = document.getElementById('todoText');

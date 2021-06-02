@@ -1,11 +1,16 @@
 // Color Variables
 $color-primary: steelblue;
+$color-primary-dark: rgb(6, 63, 110);
+$color-secondary: rgb(241, 101, 45);
+$color-secondary-light:rgb(255, 160, 122);
 
 // Font Variables
+$font-display: 'Noto Sans JP', sans-serif;
+
+// Box Shadow
+$box-shadow: 5px 5px 11px 0px #e2dad9;
 
 //////////////////////////
-// Responsive Breakpoints
-/////////////////////////
 // Responsive Breakpoints
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
@@ -33,26 +38,13 @@ body {
 .border {
   border: 1px solid red;
 }
-.container {
-  & h1 {
-    font-size: 3rem;
-    text-align: center;
-  }
-}
-.filter,.todo-list, .form{
-  
-  padding: 1rem;
-  .filter__checkbox{
-    margin-top: 1rem;
-  }
-}
-
-.summary {
-  padding: 1rem;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.grid {
+.container{
   display: grid;
+  grid-template-columns: repeat(2, 600px);
 }
+.box-1{
+  width: 700px;
+}
+
+
+
