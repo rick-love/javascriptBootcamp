@@ -1,5 +1,3 @@
-
-
 // Read local data
 const getSavedNotes = () => {
   let notesJSON = localStorage.getItem('notes');
@@ -24,7 +22,7 @@ const removeNote = (id) => {
 // Generate NOTES IN DOM
 const generateNoteDOM = (note) => {
   const noteEl = document.createElement('div');
-  const textEl = document.createElement('span');
+  const textEl = document.createElement('a');
   const removeButton = document.createElement('button');
 
   //   REMOVE NOTE BUTTON
@@ -33,7 +31,7 @@ const generateNoteDOM = (note) => {
   removeButton.addEventListener('click', () => {
     removeNote(note.id);
 
-    saveNotes(notes)
+    saveNotes(notes);
     renderNotes(notes, filters);
   });
 
@@ -43,6 +41,8 @@ const generateNoteDOM = (note) => {
   } else {
     textEl.textContent = 'Unnamed Note';
   }
+
+  textEl.setAttribute('href', `/edit.html#${note.id}`);
   noteEl.appendChild(textEl);
   return noteEl;
 };

@@ -2,7 +2,7 @@ const addNote = document.getElementById('addNote');
 const searchText = document.getElementById('search-text');
 const notesDiv = document.getElementById('div__notes');
 
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
 const filters = {
   searchText: '',
@@ -18,16 +18,23 @@ searchText.addEventListener('input', (e) => {
 });
 
 addNote.addEventListener('click', (e) => {
+  const id = uuidv4();
   notes.push({
-    id: uuidv4(),
+    id: id,
     title: '',
     body: '',
   });
   saveNotes(notes);
-  renderNotes(notes, filters);
+  location.assign(`/edit.html#${id}`);
 });
 
 document.querySelector('#filterBy').addEventListener('change', (e) => {
   console.log(e.target.value);
 });
 
+window.addEventListener('storage', (e) => {
+  if (e.key === 'notes') {
+    notes = JSON.parse(e.newValue)
+    renderNotes(notes, filters) 
+  }
+})
