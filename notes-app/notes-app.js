@@ -34,7 +34,42 @@ document.querySelector('#filterBy').addEventListener('change', (e) => {
 
 window.addEventListener('storage', (e) => {
   if (e.key === 'notes') {
-    notes = JSON.parse(e.newValue)
-    renderNotes(notes, filters) 
+    notes = JSON.parse(e.newValue);
+    renderNotes(notes, filters);
   }
-})
+});
+
+const now = moment();
+console.log(now.toString())
+
+
+
+
+// const date1 = new Date('November 17 1971');
+// const date2 = new Date('November 17 2021');
+// const timestamp1 = date1.getTime();
+// const timestamp2 = date2.getTime();
+// console.log(timestamp1);
+// console.log(timestamp2);
+
+// if (timestamp1 > timestamp2) {
+//   console.log(date2.toString())
+// } else {
+//   console.log(date1.toString())
+// }
+
+// const now = new Date();
+// const timestamp = now.getTime();
+// const myDate = new Date(timestamp);
+// console.log(myDate.getFullYear());
+
+// console.log(now.toString());
+// console.log(now.getTime());
+// console.log(now.getTimezoneOffset());
+
+// console.log(`Year: ${now.getFullYear()}`)
+// console.log(`Month: ${now.getMonth()+1}`)
+// console.log(`Day: ${now.getDate()}`)
+// console.log(`Hour: ${now.getHours()}`)
+// console.log(`Minute: ${now.getMinutes()}`)
+// console.log(`Seconds: ${now.getSeconds()}`)

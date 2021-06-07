@@ -1,6 +1,7 @@
 const noteTitle = document.getElementById('note-title');
 const noteBody = document.getElementById('note-body');
 const removeNoteButton = document.getElementById('note-remove');
+const saveNoteButton = document.getElementById('note-save');
 const noteId = location.hash.substr(1);
 
 let notes = getSavedNotes();
@@ -28,6 +29,10 @@ removeNoteButton.addEventListener('click', () => {
   removeNote(note.id);
   saveNotes(notes);
 
+  location.assign('/index.html');
+});
+saveNoteButton.addEventListener('click', () => {
+  saveNotes(notes);
   location.assign('/index.html');
 });
 
