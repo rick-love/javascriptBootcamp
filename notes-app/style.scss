@@ -1,50 +1,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
+:root {
+  --box-shadow: 4px 4px #ccc;
+  --font-display-size: 1.4rem;
+  --primary-color: steelblue;
+  --secondary-color: coral;
+
 }
-html{
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    font-family: 'Roboto', sans-serif;
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-.container{
-    display: grid;
+.container {
+  display: grid;
+  padding: 1rem;
+  h1,
+  h4 {
+    text-align: center;
+    letter-spacing: 0.15rem;
+  }
+  font-size: var(--font-display-size);
+
+  input[type='text'] {
+    // width: 100%;
+    font-family: inherit;
+    color: #333;
+    font-size: var(--font-display-size);
     padding: 1rem;
-    h1, h4{
-        text-align: center;
-        letter-spacing: .15rem;
-    }
-    font-size: 1rem;
-
-    input[type="text"]{
-        // width: 100%;
-        font-family: inherit;
-        color: #333;
-        font-size: 1.3rem;
-        padding: 1rem;
-        border: solid 1px black;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-        box-shadow: 4px 4px #ccc;
-    }
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+  }
 }
-.filter{
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    margin-top: 1rem;
-
+.filter {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-top: 1rem;
 }
 .select-box {
-    width: 100%;
-    padding: 1rem;
-    height: 3.6rem;
-    border: 1px solid #999;
-    font-size: 1.3rem;
-    color: #1c87c9;
-    border-radius: 5px;
-    box-shadow: 4px 4px #ccc;
+  width: 100%;
+  padding: 1rem;
+  height: 3.6rem;
+  border: 1px solid #999;
+  font-size: var(--font-display-size);
+  color: #1c87c9;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+  &:hover {
+    color: var(--secondary-color)
+  }
+}
+.note-element{
+    margin-bottom: .5rem;
+}
+.note-text {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: var(--font-display-size);
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+.remove-note {
+  font-size: var(--font-display-size);
+  text-align: center;
+  background-color: coral;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: #333;
+  &:hover{
+      cursor: pointer;
+  }
+}
+.note-add {
+  font-size: var(--font-display-size);
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: var(--box-shadow);
+  &:hover {
+    background-color: steelblue;
+    box-shadow: none;
+    color: #fff;
+  }
+}
+.lastEdit{
+  font-size: var(--font-display-size);
+
 }

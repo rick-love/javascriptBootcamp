@@ -22,11 +22,14 @@ const removeNote = (id) => {
 // Generate NOTES IN DOM
 const generateNoteDOM = (note) => {
   const noteEl = document.createElement('div');
+  noteEl.className = 'note-element';
   const textEl = document.createElement('a');
+  textEl.className = 'note-text';
   const removeButton = document.createElement('button');
 
   //   REMOVE NOTE BUTTON
   removeButton.textContent = 'x';
+  removeButton.className = 'remove-note';
   noteEl.appendChild(removeButton);
   removeButton.addEventListener('click', () => {
     removeNote(note.id);
@@ -52,8 +55,46 @@ const saveNotes = (notes) => {
   localStorage.setItem('notes', JSON.stringify(notes));
 };
 
+// Sort Notes by Dropdown Value
+const sortNotes = (notes, sortBy) => {
+  if (sortBy === 'byEdited') {
+    return notes.sort((a, b) => {
+      if (a.updatedAt > b.updatedAt) {
+        return -1;
+      } else if (a.updatedAt < b.updatedAt) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (sortBy === 'byCreated') {
+    return notes.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      } else if (a.createdAt < b.createdAt) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (sortBy === 'alphabetical') {
+    return notes.sort((a, b) => {
+      if (a.title.substr(0, 1) < b.title.substr(0, 1)) {
+        return -1;
+      } else if (a.title.substr(0, 1) > b.title.substr(0, 1)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    return notes;
+  }
+};
+
 // RENDER NOTES
 const renderNotes = (notes, filters) => {
+  notes = sortNotes(notes, filters.sortBy);
   const filteredNotes = notes.filter((note) => {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
   });
@@ -64,4 +105,8 @@ const renderNotes = (notes, filters) => {
     const noteEl = generateNoteDOM(note);
     notesDiv.appendChild(noteEl);
   });
+};
+
+const updateEditMessage = (timestamp) => {
+  return `Last edited ${moment(timestamp).fromNow()}`;
 };
