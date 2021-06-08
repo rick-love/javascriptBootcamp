@@ -6,9 +6,7 @@ const saveNoteButton = document.getElementById('note-save');
 const noteId = location.hash.substr(1);
 
 let notes = getSavedNotes();
-let note = notes.find(function (note) {
-  return note.id === noteId;
-});
+let note = notes.find((note) => note.id === noteId);
 
 if (note === undefined) {
   location.assign('/index.html');
@@ -45,9 +43,7 @@ saveNoteButton.addEventListener('click', () => {
 window.addEventListener('storage', (e) => {
   if (e.key === 'notes') {
     notes = JSON.parse(e.newValue);
-    note = notes.find(function (note) {
-      return note.id === noteId;
-    });
+    note = notes.find((note) => note.id === noteId);
 
     if (note === undefined) {
       location.assign('/index.html');

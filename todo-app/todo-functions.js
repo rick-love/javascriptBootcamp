@@ -29,9 +29,7 @@ const saveTodos = (todos) => {
 
 // REMOVE TODO
 const removeTodo = (id) => {
-  const todoIndex = todos.findIndex((todo) => {
-    return todo.id === id;
-  });
+  const todoIndex = todos.findIndex((todo) => todo.id === id);
   if (todoIndex > -1) {
     todos.splice(todoIndex, 1);
   }
@@ -48,9 +46,7 @@ const renderTodos = (todos, filters) => {
     return searchTextMatch && hideCompletedMatch;
   });
 
-  const incompletedTodos = filteredTodos.filter((todo) => {
-    return !todo.completed;
-  });
+  const incompletedTodos = filteredTodos.filter((todo) => !todo.completed);
 
   todoList.innerHTML = '';
   todoSummary.innerHTML = '';
@@ -63,9 +59,7 @@ const renderTodos = (todos, filters) => {
 };
 
 const toggleTodo = (id) => {
-  const todo = todos.find((todo) => {
-    return todo.id === id;
-  });
+  const todo = todos.find((todo) => todo.id === id);
   if (todo !== undefined) {
     todo.completed = !todo.completed;
   }
@@ -79,13 +73,13 @@ const generateTodoDOM = (todo) => {
   const deleteBtn = document.createElement('button');
 
   todoEl.className = 'todo__item';
-  
+
   //   Add Checkbox
   checkbox.type = 'checkbox';
   checkbox.className = 'todo__item-checkbox';
   checkbox.checked = todo.completed;
   todoEl.appendChild(checkbox);
-  
+
   //   Add Label + Text
   checkboxLabel.className = 'todo__item-label';
   if (todo.text.length > 0) {
@@ -94,7 +88,6 @@ const generateTodoDOM = (todo) => {
     checkboxLabel.textContent = 'Unnamed Todo';
   }
   todoEl.appendChild(checkboxLabel);
-
 
   checkbox.addEventListener('change', () => {
     toggleTodo(todo.id);
@@ -118,7 +111,6 @@ const generateTodoDOM = (todo) => {
 // GENERATE SUMMARY TO DOM
 const generateSummaryDOM = (incompletedTodos) => {
   const summary = document.createElement('h3');
-  
   summary.textContent = `${incompletedTodos.length} remaining items todo.`;
   return summary;
 };

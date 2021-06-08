@@ -45,8 +45,8 @@ window.addEventListener('storage', (e) => {
   }
 });
 
-const now = moment();
-const bday50 = moment([2021, 10, 17]);
-console.log('Birthday: ' + bday50.format('MMM Do yyyy'));
-console.log(now.to(bday50));
-console.log(now.diff(bday50, 'days'));
+// const now = moment();
+// const bday50 = moment([2021, 10, 17]);
+// console.log('Birthday: ' + bday50.format('MMM Do yyyy'));
+// console.log(now.to(bday50));
+// console.log(now.diff(bday50, 'days'));
