@@ -79,9 +79,9 @@ const sortNotes = (notes, sortBy) => {
     });
   } else if (sortBy === 'alphabetical') {
     return notes.sort((a, b) => {
-      if (a.title.substr(0, 1) < b.title.substr(0, 1)) {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
         return -1;
-      } else if (a.title.substr(0, 1) > b.title.substr(0, 1)) {
+      } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
         return 1;
       } else {
         return 0;
