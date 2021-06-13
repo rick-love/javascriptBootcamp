@@ -5,7 +5,6 @@
   --font-display-size: 1.4rem;
   --primary-color: steelblue;
   --secondary-color: coral;
-
 }
 * {
   margin: 0;
@@ -17,14 +16,19 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
 }
+.border {
+  border: solid 1px red;
+}
 
 .container {
   display: grid;
+  width: 500px;
   padding: 1rem;
   h1,
   h4 {
     text-align: center;
     letter-spacing: 0.15rem;
+    color: var(--primary-color);
   }
   font-size: var(--font-display-size);
 
@@ -42,12 +46,11 @@ body {
 }
 .filter {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 .select-box {
   width: 100%;
-  padding: 1rem;
+  padding: .5rem;
   height: 3.6rem;
   border: 1px solid #999;
   font-size: var(--font-display-size);
@@ -55,11 +58,14 @@ body {
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
   &:hover {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
   }
 }
-.note-element{
-    margin-bottom: .5rem;
+.notes{
+  margin: 1rem;
+}
+.note-element {
+  margin-bottom: 0.5rem;
 }
 .note-text {
   text-decoration: none;
@@ -78,8 +84,8 @@ body {
   border-radius: 5px;
   border: none;
   color: #333;
-  &:hover{
-      cursor: pointer;
+  &:hover {
+    cursor: pointer;
   }
 }
 .note-add {
@@ -95,7 +101,6 @@ body {
     color: #fff;
   }
 }
-.lastEdit{
+.lastEdit {
   font-size: var(--font-display-size);
-
 }

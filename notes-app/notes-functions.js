@@ -2,11 +2,13 @@
 const getSavedNotes = () => {
   let notesJSON = localStorage.getItem('notes');
 
-  if (notesJSON !== null) {
-    return JSON.parse(notesJSON);
-  } else {
-    return [];
-  }
+  return notesJSON !== null ? JSON.parse(notesJSON) : [];
+
+  // if (notesJSON !== null) {
+  //   return JSON.parse(notesJSON);
+  // } else {
+  //   return [];
+  // }
 };
 
 // Remove Note from List
